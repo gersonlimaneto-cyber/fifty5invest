@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIFTY5 — Investments, Ventures, Insights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;600&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:       #4A9BAD;
+      --teal-dark:  #2E7A8F;
+      --teal-light: #A8D4DC;
+      --gray-text:  #7A8A90;
+      --gray-dark:  #3A4A50;
+      --gray-mid:   #B0BEC5;
+      --off-white:  #F4F6F7;
+      --white:      #FFFFFF;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--gray-dark);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--white);
+      padding: 1.75rem 5rem;
+      border-bottom: 3px solid var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-block {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* Recreate the logo mark in CSS */
+    .logo-mark {
+      display: flex;
+      align-items: stretch;
+      margin-right: 1rem;
+    }
+
+    .logo-fifty {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--gray-text);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      text-transform: uppercase;
+      border-right: 3px solid var(--teal);
+      padding-right: 6px;
+      margin-right: 0;
+      line-height: 1;
+    }
+
+    .logo-five {
+      font-family: 'Raleway', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 200;
+      color: var(--teal);
+      line-height: 0.9;
+      padding-left: 4px;
+    }
+
+    .logo-words {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 1rem;
+      border-left: 1px solid var(--gray-mid);
+      gap: 2px;
+    }
+
+    .logo-words span {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-text);
+      display: block;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 5rem 6rem;
+      background: var(--off-white);
+    }
+
+    /* Geometric background inspired by logo colors */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 480px; height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,155,173,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: 10%;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,155,173,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Large decorative 5 */
+    .hero-deco {
+      position: absolute;
+      right: 4rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Raleway', sans-serif;
+      font-size: 22rem;
+      font-weight: 200;
+      color: rgba(74,155,173,0.07);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 620px; }
+
+    .hero-eyebrow {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-weight: 200;
+      line-height: 1.15;
+      color: var(--gray-dark);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero h1 strong {
+      font-weight: 600;
+      color: var(--teal-dark);
+    }
+
+    .hero p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--gray-text);
+      max-width: 520px;
+    }
+
+    .teal-bar {
+      width: 48px;
+      height: 3px;
+      background: var(--teal);
+      margin: 2rem 0;
+    }
+
+    /* ── PILLARS ── */
+    .pillars-wrap {
+      padding: 5rem;
+      background: var(--white);
+    }
+
+    .section-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 3rem;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .pillar {
+      border-top: 2px solid var(--teal-light);
+      padding-top: 1.5rem;
+    }
+
+    .pillar h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .pillar p {
+      font-size: 0.875rem;
+      line-height: 1.8;
+      color: var(--gray-text);
+    }
+
+    /* ── CONTACT ── */
+    .contact-wrap {
+      background: var(--teal);
+      padding: 4.5rem 5rem;
+      text-align: center;
+    }
+
+    .contact-wrap h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-wrap a {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.35);
+      padding-bottom: 3px;
+      transition: border-color 0.2s;
+    }
+
+    .contact-wrap a:hover {
+      border-color: rgba(255,255,255,0.9);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--gray-dark);
+      padding: 1.25rem 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer p {
+      font-size: 0.72rem;
+      color: rgba(176,190,197,0.5);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      header { padding: 1.25rem 1.5rem; }
+      .hero { padding: 4rem 1.5rem 3.5rem; }
+      .hero-deco { display: none; }
+      .pillars-wrap { padding: 3rem 1.5rem; }
+      .contact-wrap { padding: 3rem 1.5rem; }
+      footer { padding: 1.25rem 1.5rem; flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-block">
+      <div class="logo-mark">
+        <span class="logo-fifty">FIFTY</span>
+        <span class="logo-five">5</span>
+      </div>
+      <div class="logo-words">
+        <span>Investments</span>
+        <span>Ventures</span>
+        <span>Insights</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-deco">5</div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Private Investment Company</p>
+        <h1>Capital, expertise<br/>and <strong>active partnership</strong><br/>for growing companies</h1>
+        <div class="teal-bar"></div>
+        <p>FIFTY5 manages a portfolio of startup and scaleup companies — combining equity investment with hands-on executive participation to accelerate growth, strengthen operations, and open doors to strategic networks.</p>
+      </div>
+    </section>
+
+    <section class="pillars-wrap">
+      <p class="section-label">How we engage</p>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Shareholding</h3>
+          <p>Direct equity stakes in high-potential startups and scaleups, structured for long-term value creation.</p>
+        </div>
+        <div class="pillar">
+          <h3>Executive Participation</h3>
+          <p>Board-level and executive engagement — CFO, advisor, or director — bringing decades of operational and financial experience directly into the company.</p>
+        </div>
+        <div class="pillar">
+          <h3>Working Capital</h3>
+          <p>Financing operations and growth cycles to help portfolio companies scale without losing momentum.</p>
+        </div>
+        <div class="pillar">
+          <h3>Network Access</h3>
+          <p>Opening doors to clients, suppliers, advisors, and strategic partners built over 30+ years across industries.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-wrap">
+      <h2>Get in touch</h2>
+      <a href="mailto:contact@fifty5invest.com">contact@fifty5invest.com</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 FIFTY5. All rights reserved.</p>
+    <p>fifty5invest.com</p>
+  </footer>
+
+</body>
+</html>
